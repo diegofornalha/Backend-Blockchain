@@ -80,11 +80,12 @@
 	},
 	"deployments": {
 		"emulator": {
+			"emulator-alice": [],
 			"emulator-account": [
 				"Pieces",
+				"NonFungibleToken",
 				"MetadataViews",
-				"FungibleToken",
-				"NonFungibleToken"
+				"FungibleToken"
 			]
 		},
 		"testnet": {

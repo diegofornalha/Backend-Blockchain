@@ -7,7 +7,6 @@ import https from "https";
 import passport from "passport";
 import { Piece } from "../models/pieceModel";
 import { savePieceListingData } from "../controllers/piece.controller";
-import { FlowLogicHandler } from "./FlowLogic";
 // import { mintNFT, uploadMetadata } from "../Flow/actions";
 
 const twitterClient = new TwitterApi({
@@ -89,10 +88,6 @@ export const twitterMentions = async () => {
                       return e.id == dataJson.data.author_id;
                     })[0].author_id
                   : [];
-
-              const response = await FlowLogicHandler(authorUserId, text);
-
-              console.log(response);
             }
           } catch (e) {
             console.log(e);

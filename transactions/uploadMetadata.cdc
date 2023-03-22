@@ -1,23 +1,21 @@
-import Pieces_1 from "../contracts/Pieces_1.cdc"
+import Pieces_4 from "../contracts/Pieces.cdc"
 
-transaction(
-  _twitterId: UInt64,
-  _description: String,
-  _image: String,
-  _ipfsCID: String
-) {
-  let Administrator: &Pieces_1.Administrator
-  prepare(deployer: AuthAccount) {
-    self.Administrator = deployer.borrow<&Pieces_1.Administrator>(from: Pieces_1.AdministratorStoragePath)
-                          ?? panic("This account is not the Administrator.")
-  }
+  transaction(
+    _twitterId: UInt64,
+    _description: String,
+    _url: String
+  ) {
+    let Administrator: &Pieces_4.Administrator
+    prepare(deployer: AuthAccount) {
+      self.Administrator = deployer.borrow<&Pieces_4.Administrator>(from: Pieces_4.AdministratorStoragePath)
+                           ?? panic("This account is not the Administrator.")
+   }
 
-  execute {
-      self.Administrator.createNFTMetadata(
-        twitterId: _twitterId,
-        description: _description,
-        imagePath: _image,
-        ipfsCID: _ipfsCID,
-      )
+    execute {
+        self.Administrator.createNFTMetadata(
+          twitterId: _twitterId,
+          description: _description,
+          url: _url
+        )
+    }
   }
-}
