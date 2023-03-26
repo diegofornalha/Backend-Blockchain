@@ -1,5 +1,5 @@
-import Pieces_1 from "../contracts/Pieces_1.cdc"
+import Pieces_4 from "../contracts/Pieces.cdc"
 
 pub fun main(): {UInt64: Pieces_1.NFTMetadata} {
-  return Pieces_1.getNFTMetadatas()
+  return Pieces_4.getNFTMetadatas()
 }
